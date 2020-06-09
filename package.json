@@ -9,7 +9,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "concurrently \"npm:build:dev\" \"npm:start:dev\"",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "Bar Lerer",
@@ -38,10 +38,8 @@
     "@types/shortid": "0.0.29",
     "@types/supertest": "^2.0.9",
     "@types/validator": "^13.0.0",
-    "chai": "^4.2.0",
     "concurrently": "^5.2.0",
     "jest": "^26.0.1",
-    "mocha": "^7.2.0",
     "nodemon": "^2.0.4",
     "supertest": "^4.0.2",
     "ts-jest": "^26.1.0",

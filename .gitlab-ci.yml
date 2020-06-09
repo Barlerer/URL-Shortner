@@ -1,10 +1,10 @@
-image: node:12.18-alpine
-
 # Pick zero or more services to be used on all builds.
 # Only needed when using a docker container to run your tests in.
 # Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
 services:
   - postgres:latest
+  - docker:19.03.1-dind
+
 variables:
   POSTGRES_DB: postgres
   POSTGRES_USER: postgres
@@ -18,7 +18,15 @@ cache:
     - node_modules/
 
 test:
+  image: node:12.18-alpine
   script:
     - npm install
     - npm test
+build:
+  image: docker:19.03.1
+  script:
+    - docker login $REGISTARY_DOMAIN -u $DOCKER_REGISTARY_USER -p $DOCKER_REGISTARY_PASS
+    - docker build -t $REGISTARY_DOMAIN/url-short .
+    - docker push $REGISTARY_DOMAIN/url-short
+
 

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 let ent = []
 if (process.env.NODE_ENV == 'test') {
     ent.push(__dirname + "/**/*.entity.ts")
