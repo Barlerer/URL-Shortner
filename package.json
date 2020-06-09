@@ -1,5 +1,9 @@
 {
   "name": "link-shortner",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/barlerer/url-shortner.git"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
