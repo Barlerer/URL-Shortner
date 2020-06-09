@@ -59,4 +59,14 @@ describe('Test API points', () => {
     const result = await request(app).get('/');
     expect(result.status).toBe(200);
   })
+
+  it('Should return same short url', async () => {
+    const result = await request(app).post('/api/short').send({
+      url: "http://mywebsite.co.il"
+    });
+    const secondTime = await request(app).post('/api/short').send({
+      url: "http://mywebsite.co.il"
+    });
+    expect(result.body).toMatchObject(secondTime.body)
+  })
 })

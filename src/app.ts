@@ -5,16 +5,15 @@ import { Url } from './entity/Url.entity';
 import shortid from 'shortid';
 import path from 'path';
 
-//
 const app = express();
 
-app.use(
-  express.static(path.join(__dirname, "public"), { maxAge: 600 })
-);
+app.use(express.static(path.join(__dirname, "public"), { maxAge: 600 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+//routes
 app.get('/', (req: Request, res: Response) => {
   return res.render('mypage')
 })
@@ -41,6 +40,10 @@ app.post("/api/short/", async (req: Request, res: Response) => {
     return res.status(400).send("Bad URL")
   }
   const urlRepo = getRepository(Url)
+  const existUrl = await urlRepo.findOne({longUrl: input.toString()})
+  if (existUrl) {
+    return res.send(existUrl)
+  }
   let url = new Url();
   url.longUrl = input.toString();
   url.shortUrl = shortid.generate();
