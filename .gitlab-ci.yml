@@ -25,6 +25,12 @@ test:
   script:
     - npm install
     - npm test
+    - mv coverage/Icov-report/ public/
+  artifacts:
+    paths:
+      - public
+
+
 build:
   stage: deploy
   image: docker:19.03.1
