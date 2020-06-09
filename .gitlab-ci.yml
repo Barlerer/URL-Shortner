@@ -11,6 +11,7 @@ variables:
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: postgres
   POSTGRES_HOST_AUTH_METHOD: trust
+  DOCKER_TLS_CERTDIR: "/certs"
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -29,7 +30,7 @@ build:
   image: docker:19.03.1
   script:
     - docker login $REGISTARY_DOMAIN -u $DOCKER_REGISTARY_USER -p $DOCKER_REGISTARY_PASS
-    - docker build -t $REGISTARY_DOMAIN/barlerer/url-short .
-    - docker push $REGISTARY_DOMAIN/barlerer/url-short
+    - docker build -t $REGISTARY_DOMAIN/barlerer/url-shortner .
+    - docker push $REGISTARY_DOMAIN/barlerer/url-shortner
 
 
