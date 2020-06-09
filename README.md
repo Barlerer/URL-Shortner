@@ -17,7 +17,7 @@ Yes, run
 ```
 npm install
 npm run build
-npm npm start
+npm run start
 ```
 Please note if you run it without docker you will need a Postgres server.
 
