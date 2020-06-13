@@ -10,7 +10,8 @@ This is a pet project which I have learned the use of:
 Clone this repo and run `docker-compose up`.
 
 ## Is there a live example of this?
-Will do.
+[Here](https://url-short-barlerer.herokuapp.com/)\
+I understand the domain is long. This is not for production environment, only for demonstration purposes
 
 ## Can I run this without docker?
 Yes, run 
