@@ -23,3 +23,6 @@ Please note if you run it without docker you will need a Postgres server.
 
 ## Can I suggest anything?
 Please do, <barlerer@gmail.com>
+
+## Where is the main repo with the CI/CD? 🖥️
+[Over here ](https://gitlab.com/barlerer/url-shortner)
